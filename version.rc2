@@ -1,0 +1,53 @@
+#ifndef _MAC
+/////////////////////////////////////////////////////////////////////////////
+//
+// Version
+//
+#include "WINVER.H"
+
+#ifdef WIN98
+#define OPERATING_SYSTEM_FLAGS VOS__WINDOWS32
+#else 
+#define OPERATING_SYSTEM_FLAGS VOS_NT_WINDOWS32
+#endif
+
+VS_VERSION_INFO VERSIONINFO
+ FILEVERSION 0,1,0,5
+ PRODUCTVERSION 0,1,0,5
+ FILEFLAGSMASK 0x3fL
+#ifdef _DEBUG
+ FILEFLAGS 0x1L
+#else
+ FILEFLAGS 0x0L
+#endif
+ FILEOS OPERATING_SYSTEM_FLAGS
+ FILETYPE 0x1L
+ FILESUBTYPE 0x0L
+BEGIN
+    BLOCK "StringFileInfo"
+    BEGIN
+        BLOCK "040904b0"
+        BEGIN
+            VALUE "Comments", "Lists all modules (DLLs) loaded by a running process\0"
+            VALUE "CompanyName", "None\0"
+            VALUE "FileDescription", "DisplayLoadedModules MFC Application\0"
+            VALUE "FileVersion", "1.5\0"
+            VALUE "InternalName", "DisplayLoadedModules\0"
+            VALUE "LegalCopyright", "Copyright (C) 1998-1999\0"
+            VALUE "LegalTrademarks", "Copyright 1998-1999 Emmanuel KARTMANN\0"
+            VALUE "OriginalFilename", "DisplayLoadedModules.EXE\0"
+            VALUE "PrivateBuild", "\0"
+            VALUE "ProductName", "DisplayLoadedModules Application\0"
+            VALUE "ProductVersion", "1.5\0"
+            VALUE "SpecialBuild", "\0"
+        END
+    END
+    BLOCK "VarFileInfo"
+    BEGIN
+        VALUE "Translation", 0x409, 1200
+    END
+END
+
+#endif    // !_MAC
+
+

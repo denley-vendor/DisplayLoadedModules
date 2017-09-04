@@ -1,0 +1,110 @@
+<HTML>
+<HEAD>
+<TITLE>Display Loaded Modules v1.5</TITLE>
+</HEAD>
+
+<BODY>
+
+<CENTER><H3><FONT COLOR="#AOAO99">
+
+Display Loaded Modules v1.5
+
+</FONT></H3></CENTER><HR>
+
+
+
+This article was contributed by <A HREF="mailto:emmanuel@kartmann.com">Emmanuel KARTMANN</A>.
+
+
+
+<P><IMG SRC="DisplayLoadedModules.jpg" >
+
+
+
+<p><u>Environment:</u> VC6 SP3, NT4 SP5 <B>or</B> VC6 SP3, Windows98 SE
+
+
+
+<p>
+
+
+Have you ever experienced an error while loading a DLL when you start an application?
+Invalid DLL version? Entry point @XXXX not found? 
+<p>
+
+If the answer is yes, then this application is for you!
+<p>
+On you LAN, there may be thousands of versions of a DLL! Which version are you using? 
+Which DLL has effectively been loaded by your application? You must check the PATH, the 
+current working directory of your process, etc...
+<p>
+
+
+This small application, called "DisplayLoadedModules", <B>connects to a running process</B>, gets the <EM>list of DLLs 
+loaded by the process</EM>, and display the following information for every DLL:
+<P>
+
+<UL>
+<LI>Module File Path (e.g. "C:\WINNT4\System32\WS2_32.dll")
+
+<LI>Module Description (e.g. "Windows Socket 2.0 32-Bit DLL")
+
+<LI>Module File Version (e.g. "4.00")
+
+<LI>Associated Product Name (e.g. "Microsoft(R) Windows NT(TM) Operating System")
+
+<LI>Associated Product Version (e.g. "4.00")
+
+<LI>Module File Size (e.g. "59664 bytes")
+
+<LI>Module Creation Date (e.g. "October 14, 1996 03:38:00")
+</UL>
+
+<P>
+
+The application can also save the output to a text file. If your application runs on a machine "A" and not on a 
+machine "B", you can compare (using 'diff' or 'windiff') the output of the program on both machines. If you're
+experiencing a DLL version problem, you'll figure out very easily...
+
+<P>
+
+On Windows NT, the executable uses two additional DLLs/Lib: PSAPI.DLL and PDH.DLL
+For more on these APIs, please refer to MSDN Platform SDK:
+<UL>
+<LI>Process Status Helper (PSAPI)<BR>
+		<A HREF="http://msdn.microsoft.com/library/sdkdoc/winbase/psapi_25ki.htm">http://msdn.microsoft.com/library/sdkdoc/winbase/psapi_25ki.htm</A>
+<LI>OpenProcess<BR>
+		<A HREF="http://msdn.microsoft.com/library/sdkdoc/winbase/prothred_478z.htm">http://msdn.microsoft.com/library/sdkdoc/winbase/prothred_478z.htm</A>
+<LI>EnumProcessModules<BR>
+		<A HREF="http://msdn.microsoft.com/library/sdkdoc/winbase/psapi_1wz7.htm">http://msdn.microsoft.com/library/sdkdoc/winbase/psapi_1wz7.htm</A>
+<LI>GetModuleFileNameEx<BR>
+		<A HREF="http://msdn.microsoft.com/library/sdkdoc/winbase/psapi_8x88.htm">http://msdn.microsoft.com/library/sdkdoc/winbase/psapi_8x88.htm</A>
+</UL>
+
+<P>
+
+On Windows 98, the executable uses the ToolHelp32 library.
+For more on this APIs, please refer to MSDN Platform SDK:
+<UL>
+<LI>ToolHelp Library<BR>
+		<A HREF="http://msdn.microsoft.com/library/sdkdoc/winbase/toolhelp_5pfd.htm">http://msdn.microsoft.com/library/sdkdoc/winbase/toolhelp_5pfd.htm</A>
+<LI>Taking a Snapshot and Viewing Processes<BR>
+		<A HREF="http://msdn.microsoft.com/library/sdkdoc/winbase/toolhelp_99rn.htm">http://msdn.microsoft.com/library/sdkdoc/winbase/toolhelp_99rn.htm</A>
+<LI>Traversing the Module List<BR>
+		<A HREF="http://msdn.microsoft.com/library/sdkdoc/winbase/toolhelp_4t6c.htm">http://msdn.microsoft.com/library/sdkdoc/winbase/toolhelp_4t6c.htm</A>
+</UL>
+
+<P>
+Note that you must select the proper WIN32 Configuration to build the executable:
+<UL>
+<LI>On Windows 98: select configuration <B>Win32 Windows 98 Debug</B> or <B>Win32 Windows 98 Release</B>
+<LI>On Windows NT: select configuration <B>Win32 Windows NT Debug</B> or <B>Win32 Windows NT Release</B>
+</UL>
+
+
+<P>
+The version info is fetched via the CFileVersion class by Manuel Laflamme (posted in www.codeguru.com).
+
+</BODY>
+
+</HTML>
